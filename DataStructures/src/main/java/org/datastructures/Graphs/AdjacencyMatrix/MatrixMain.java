@@ -23,6 +23,8 @@ public class MatrixMain {
         graph.checkEdge(1,2);
         graph.print();
 
+        graph.depthFirstSearch(3);
+
     }
 
 }
