@@ -1,21 +1,15 @@
-package org.datastructures.Graphs.AdjacencyList;
+package org.datastructures.Graphs.AdjacencyMatrix;
 
-/**
- * Hello world!
- *
- */
-public class ListMain
-{
-    public static void main( String[] args )
-    {
-        Graph graph = new Graph();
+public class MatrixMain {
+
+    public static void main(String[] args){
+        Graph graph = new Graph(5);
 
         graph.addNode(new Node('A'));
         graph.addNode(new Node('B'));
         graph.addNode(new Node('C'));
         graph.addNode(new Node('D'));
         graph.addNode(new Node('E'));
-
 
         graph.addEdge(0,1);
         graph.addEdge(1,2);
@@ -25,11 +19,10 @@ public class ListMain
         graph.addEdge(4,0);
         graph.addEdge(4,2);
 
-        graph.checkEdge(4,1);
-
-
+        graph.checkEdge(0,4);
+        graph.checkEdge(1,2);
         graph.print();
 
-
     }
+
 }
