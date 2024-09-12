@@ -12,6 +12,7 @@ public class Graph {
         matrix = new int[size][size];
     }
 
+
     public void addNode(Node node){
         nodes.add(node);
     }
