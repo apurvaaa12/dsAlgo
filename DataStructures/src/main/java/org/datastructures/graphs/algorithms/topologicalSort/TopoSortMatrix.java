@@ -78,6 +78,10 @@ public class TopoSortMatrix {
             }
         }
 
+        for(int i : indegree){
+            if(i!=0) System.out.println("It's a cyclic graph");
+        }
+
         return orderedList;
     }
 }

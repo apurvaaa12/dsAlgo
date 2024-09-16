@@ -26,9 +26,9 @@ public class TopologicalSort {
 
         List<Integer> result = topologicalSort(graph, Vertex);
         System.out.println();
-        if(result.isEmpty()){
-            System.out.println("Cycle found");
-        }
+//        if(result.isEmpty()){
+//            System.out.println("Cycle found");
+//        }
         System.out.print("Sorted graph: " + result);
 
 
@@ -64,6 +64,11 @@ public class TopologicalSort {
                 if (inDegree[adj] == 0) queue.offer(adj);
             }
         }
+
+        for(int i : inDegree){
+            if(i!=0) System.out.println("It's a cyclic graph");
+        }
+
         return topologicalList;
     }
 
