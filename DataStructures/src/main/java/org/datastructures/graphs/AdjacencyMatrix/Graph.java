@@ -1,4 +1,4 @@
-package org.datastructures.Graphs.AdjacencyMatrix;
+package org.datastructures.graphs.AdjacencyMatrix;
 
 import java.util.ArrayList;
 

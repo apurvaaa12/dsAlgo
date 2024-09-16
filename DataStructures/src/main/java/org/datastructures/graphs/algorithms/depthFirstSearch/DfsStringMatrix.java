@@ -1,6 +1,4 @@
-package org.datastructures.Graphs.AdjacencyMatrix.DepthFirstSearch;
-
-import com.sun.org.apache.xpath.internal.operations.Bool;
+package org.datastructures.graphs.algorithms.depthFirstSearch;
 
 import java.util.ArrayList;
 import java.util.Arrays;

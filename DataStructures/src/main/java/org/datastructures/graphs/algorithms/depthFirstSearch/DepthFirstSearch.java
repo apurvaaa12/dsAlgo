@@ -1,4 +1,4 @@
-package org.datastructures.Graphs.AdjacencyMatrix.DepthFirstSearch;
+package org.datastructures.graphs.algorithms.depthFirstSearch;
 
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package org.datastructures.Graphs.AdjacencyList;
+package org.datastructures.graphs.AdjacencyList;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
