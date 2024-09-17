@@ -1,4 +1,4 @@
-package org.datastructures.graphs.AdjacencyList;
+package org.datastructures.graphs.adjacencyList;
 
 public class Node {
 
