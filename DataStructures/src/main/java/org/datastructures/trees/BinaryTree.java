@@ -22,19 +22,19 @@ public class BinaryTree {
         root = addRec(root, item);
     }
 
-    Node addRec(Node node, int item) {
+    Node addRec(Node root, int item) {
 
-        if (node == null) {
+        if (root == null) {
             return new Node(item);
         }
 
-        if (item < node.value) {
-            node.left = addRec(node.left, item);
-        } else if (item > node.value) {
-            node.right = addRec(node.right, item);
+        if (item < root.value) {
+            root.left = addRec(root.left, item);
+        } else if (item > root.value) {
+            root.right = addRec(root.right, item);
         }
 
-        return node;
+        return root;
     }
 
 
