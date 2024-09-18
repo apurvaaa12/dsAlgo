@@ -17,7 +17,7 @@ public class Btree {
 
     static Node root;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Btree btree = new Btree();
         btree.root = new Node("A");
         btree.root.left = new Node("B");
@@ -30,43 +30,47 @@ public class Btree {
         printTree(btree.root, 0);
 
         List<String> inorderList = new ArrayList<>();
-        inorderTraversal(root, inorderList);
+        inorderTraversal(btree.root, inorderList);
         System.out.println("Inorder traversal :  " + inorderList);
 
         List<String> preorderList = new ArrayList<>();
-        preorderTraversal(root, preorderList);
+        preorderTraversal(btree.root, preorderList);
         System.out.println("preorder traversal :  " + preorderList);
 
         List<String> postorderList = new ArrayList<>();
-        postorderTraversal(root, postorderList);
-        System.out.println("preorder traversal :  " + postorderList);
+        postorderTraversal(btree.root, postorderList);
+        System.out.println("postorder traversal :  " + postorderList);
+
 
         int maxDepth = maxDepthOfBinaryTree(root);
         System.out.println("Max depth of the tree: " +maxDepth);
 
     }
 
-
     static void inorderTraversal(Node root, List<String> output) {
         if (root != null) {
+            System.out.println(root.value);
             inorderTraversal(root.left, output);
             output.add(root.value);
             inorderTraversal(root.right, output);
         }
     }
 
-    static void preorderTraversal(Node root, List<String> output) {
+    static void preorderTraversal(Node root, List<String> output) throws InterruptedException {
         if (root != null) {
+            System.out.println(root.value);
+            Thread.sleep(1000);
             output.add(root.value);
-            inorderTraversal(root.left, output);
-            inorderTraversal(root.right, output);
+            System.out.println(output);
+            preorderTraversal(root.left, output);
+            preorderTraversal(root.right, output);
         }
     }
 
     static void postorderTraversal(Node root, List<String> output) {
         if (root != null) {
-            inorderTraversal(root.left, output);
-            inorderTraversal(root.right, output);
+            postorderTraversal(root.left, output);
+            postorderTraversal(root.right, output);
             output.add(root.value);
         }
     }
