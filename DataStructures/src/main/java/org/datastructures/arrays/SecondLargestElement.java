@@ -8,8 +8,8 @@ public class SecondLargestElement {
     }
 
     public static int findSecondLargest(int n, int[] arr) {
-        int firstLargest= -1 , secondLargest = -1;
-        for(int i=0;i<arr.length;i++){
+        int firstLargest= Integer.MIN_VALUE , secondLargest = Integer.MIN_VALUE;
+        for(int i=0;i<n;i++){
             if(firstLargest<arr[i]){
                 secondLargest = firstLargest;
                 firstLargest = arr[i];
@@ -18,6 +18,6 @@ public class SecondLargestElement {
                 secondLargest = arr[i];
             }
         }
-        return secondLargest;
+        return secondLargest == Integer.MIN_VALUE ? -1 : secondLargest;
     }
 }
