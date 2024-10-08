@@ -1,5 +1,7 @@
 package org.datastructures.trees;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,8 +45,26 @@ public class Btree {
 
 
         int maxDepth = maxDepthOfBinaryTree(root);
-        System.out.println("Max depth of the tree: " +maxDepth);
+        System.out.println("Max depth of the tree: " + maxDepth);
 
+        int minDepth = minDepthOfBinaryTree(root);
+        System.out.println("Min depth of the tree: " + minDepth);
+
+        Boolean isHeightBalanced = isBalanced(root);
+        System.out.println("Is it a balanced tree? " + isHeightBalanced);
+
+        Node invertedTree = invertTree(root);
+        printTree(invertedTree,0);
+
+        int numberOfNodes = countNodes(root);
+        System.out.println("Number of trees in the node: " +numberOfNodes);
+
+
+    }
+
+    //In a height balanced tree the difference between left subtree and left subtree must never exceed more than 1
+    static Boolean isBalanced(Node root) {
+        return balancedTree(root) != -1;
     }
 
     static void inorderTraversal(Node root, List<String> output) {
@@ -87,11 +107,61 @@ public class Btree {
 
     }
 
-    static int maxDepthOfBinaryTree(Node root){
-        if(root == null ) return 0;
+    static int maxDepthOfBinaryTree(Node root) {
+        if (root == null) return 0;
         int left = maxDepthOfBinaryTree(root.left);
         int right = maxDepthOfBinaryTree(root.right);
-        return Math.max(left,right) +1;
+        return Math.max(left, right) + 1;
+
+    }
+
+    static int minDepthOfBinaryTree(Node root) {
+        if (root == null) return 0;
+
+        if (root.left == null) return minDepthOfBinaryTree(root.right) + 1;
+
+        if (root.right == null) return minDepthOfBinaryTree(root.left) + 1;
+
+        int left = minDepthOfBinaryTree(root.left);
+        int right = minDepthOfBinaryTree(root.right);
+
+        return Math.min(left, right) + 1;
+    }
+
+    static int balancedTree(Node root) {
+        if (root == null) return 0;
+
+        int left = balancedTree(root.left);
+        int right = balancedTree(root.right);
+
+        if (left == -1 || right == -1) return -1;
+
+        if (Math.abs(left - right) > 1) return -1;
+
+        return Math.max(left, right) + 1;
+
+    }
+
+    static Node invertTree(Node root){
+        if(root == null) return null;
+
+        Node temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+
+        invertTree(root.left);
+        invertTree(root.right);
+
+        return root;
+    }
+
+    static int countNodes(Node root){
+        if(root == null) return 0;
+
+        int left = countNodes(root.left);
+        int right = countNodes(root.right);
+        int count = left+right+1;
+        return count;
 
     }
 
