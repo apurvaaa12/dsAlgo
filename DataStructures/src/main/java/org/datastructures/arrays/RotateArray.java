@@ -29,3 +29,7 @@ public class RotateArray {
     }
 
 }
+
+//k=k%nums.length to handle the situation if K is greater than the nums.length
+// if k>nums.length in that case we rotate the array by k%numd.length times.
+// example nums.length = 5 and k= 8 then we rotate the array by 8/5 = 3 positions.
