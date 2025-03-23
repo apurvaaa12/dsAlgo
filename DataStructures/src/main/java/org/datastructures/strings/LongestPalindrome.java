@@ -1,6 +1,7 @@
 package org.datastructures.strings;
 
-import java.util.Arrays;
+
+import java.util.HashSet;
 
 public class LongestPalindrome {
     public static void main(String[] args){
@@ -10,23 +11,23 @@ public class LongestPalindrome {
     }
 
     public static int longestPalindrome(String s) {
-        int[] charCounts = new int[128];
-        for(char c : s.toCharArray()){
-            charCounts[c]++;
-        }
-        System.out.println(Arrays.toString(charCounts));
+        HashSet<Character> set  = new HashSet<>();
+        int length =0;
 
-        int result =0 ;
-        for(int count: charCounts){
-            result = result+count/2*2;
-            if(result%2==0 && count%2 ==1){
-                result = result+1;
+        for(char current: s.toCharArray()){
+            if(set.contains(current)){
+                length = length+2;
+                set.remove(current);
+            }else{
+                set.add(current);
             }
         }
+        if(!set.isEmpty()){
+            length++;
+        }
 
-        System.out.println(result);
-        return result;
-    }
+        return length;
+     }
 }
 
 //count each character in the string

@@ -15,6 +15,7 @@ public class RemoveZeros {
        }
 
        str = str.substring(i);
+       System.out.println(str);
        while(str.charAt(j) == '0' && j>=0){
            j--;
        }

@@ -1,7 +1,5 @@
 package org.datastructures.trees;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import java.util.ArrayList;
 import java.util.List;
 

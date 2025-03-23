@@ -2,6 +2,8 @@ package org.datastructures.sortingAlgos;
 
 import java.util.Arrays;
 
+
+//https://www.youtube.com/watch?v=MP_Of5rZ6sQ
 // start from index 1 and check all the small elements to the left of the array and swap if you find a lesser element
 //After comparing elements to the left shift the elements to the right to make room to insert the value
 //O(n^2)

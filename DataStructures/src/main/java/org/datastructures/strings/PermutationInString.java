@@ -1,6 +1,7 @@
 package org.datastructures.strings;
 
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PermutationInString {
     public static void main(String[] args){
@@ -9,42 +10,41 @@ public class PermutationInString {
     }
 
     public static boolean checkInclusion(String s1, String s2) {
-        int m = s1.length();
-        int n = s2.length();
+        int firstLength = s1.length(), secondLength = s2.length();
+        if (secondLength < firstLength) return false; // No permutation is possible
 
-        // If s2 is smaller than s1, no permutation is possible
-        if (n < m) {
-            return false;
+        HashMap<Character,Integer> firstMap = new HashMap<>();
+        HashMap<Character,Integer> secondMap = new HashMap<>();
+
+        for(int i=0;i<firstLength;i++){
+            char current = s1.charAt(i);
+            char secondCurrent = s2.charAt(i);
+            firstMap.put(current,firstMap.getOrDefault(current,0)+1);
+            secondMap.put(secondCurrent,secondMap.getOrDefault(secondCurrent,0)+1);
         }
 
-        int[] firstStringFrequency = new int[26]; // Frequency array for s1
-        int[] secondStringFrequency = new int[26]; // Frequency array for the current window in s2
-
-        // Populate frequency array for s1
-        for (int i = 0; i < m; i++) {
-            firstStringFrequency[s1.charAt(i) - 'a']++;
-            secondStringFrequency[s2.charAt(i) - 'a']++; // Initialize the first window of s2
-        }
-
-        // Compare the first window
-        if (Arrays.equals(firstStringFrequency, secondStringFrequency)) {
+        if(firstMap.equals(secondMap)){
             return true;
         }
 
-        // Sliding window: Slide over s2 from index m to n
-        for (int i = m; i < n; i++) {
-            // Add new character in window
-            secondStringFrequency[s2.charAt(i) - 'a']++;
-            // Remove the old character from the previous window
-            secondStringFrequency[s2.charAt(i - m) - 'a']--;
+        for(int i= firstLength;i<secondLength;i++){
+            char newChar = s2.charAt(i);
+            char oldChar = s2.charAt(i-firstLength);
 
-            // Check if the current window matches s1's frequency
-            if (Arrays.equals(firstStringFrequency, secondStringFrequency)) {
+            //Add new character to the window
+            secondMap.put(newChar,secondMap.getOrDefault(newChar,0)+1);
+
+            //Remove new character
+            if(secondMap.get(oldChar)==1){
+                secondMap.remove(oldChar);
+            }else{
+                secondMap.put(oldChar,secondMap.get(oldChar)-1);
+            }
+
+            if(firstMap.equals(secondMap)){
                 return true;
             }
         }
-
-        // If no match found, return false
         return false;
     }
 
