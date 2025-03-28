@@ -5,8 +5,8 @@
 //public class cloneGraph {
 //
 //    public static void main(String[] args){
-//
-//       Node adjList = {{2,4},{1,3},{2,4},{1,3}};
+//        Node adjList = new Node();
+//        Node output = cloneGraph(adjList);
 //
 //    }
 //    public static Node cloneGraph(Node node) {
