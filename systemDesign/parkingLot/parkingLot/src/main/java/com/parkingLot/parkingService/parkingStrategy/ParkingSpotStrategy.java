@@ -1,4 +1,4 @@
-package com.parkingLot.parkingService;
+package com.parkingLot.parkingService.parkingStrategy;
 
 import com.parkingLot.entity.ParkingSpot;
 

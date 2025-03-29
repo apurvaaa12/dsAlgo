@@ -3,6 +3,7 @@ package com.parkingLot.parkingService;
 import com.parkingLot.entity.ParkingSpot;
 import com.parkingLot.entity.Ticket;
 import com.parkingLot.entity.Vehicle;
+import com.parkingLot.parkingService.parkingStrategy.ParkingSpotStrategy;
 
 import java.util.List;
 import java.util.Optional;
