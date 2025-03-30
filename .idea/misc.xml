@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/DataStructures/pom.xml" />
         <option value="$PROJECT_DIR$/systemDesign/parkingLot/parkingLot/pom.xml" />
+        <option value="$PROJECT_DIR$/systemDesign/stackOverflow/stackOverflow/pom.xml" />
       </list>
     </option>
   </component>
